@@ -1,0 +1,37 @@
+# B. Пересечение множеств
+
+# Ограничение времени 	1 секунда
+# Ограничение памяти 	64Mb
+# Ввод 	стандартный ввод или input.txt
+# Вывод 	стандартный вывод или output.txt
+
+# Даны два списка чисел, которые могут содержать до 10000 чисел каждый.
+# Выведите все числа, которые входят как в первый, так и во второй список в порядке возрастания.
+# Примечание. И даже эту задачу на Питоне можно решить в одну строчку.
+
+# Формат ввода: Вводятся два списка целых чисел. Все числа каждого списка находятся на отдельной строке.
+# Формат вывода: Выведите ответ на задачу. 
+
+
+# Решение (129ms / 12.54Mb)
+
+ans =[]
+with open("input.txt", "r") as file:
+    s1 = set([int(i) for i in file.readline().split()])
+    s2 = set([int(i) for i in file.readline().split()])
+for j in s1:
+    if j in s2:
+        ans.append(j)
+with open("output.txt", "w") as file:
+    for x in ans:
+        file.write(str(x) + " ")
+ 
+ 
+# Pешение 2 (121ms / 12.71Mb)
+
+with open("input.txt", "r") as file:
+    s1 = set([int(i) for i in file.readline().split()])
+    s2 = set([int(i) for i in file.readline().split()])
+with open("output.txt", "w") as file:
+    for x in sorted(s1&s2):
+        file.write(str(x) + " ")
